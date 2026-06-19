@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <mask id="fatcat-eyes-mono">
+      <rect width="512" height="512" fill="#fff" />
+      <ellipse cx="192" cy="280" rx="21" ry="29" fill="#000" />
+      <ellipse cx="320" cy="280" rx="21" ry="29" fill="#000" />
+    </mask>
+  </defs>
+  <path fill="#ffffff" mask="url(#fatcat-eyes-mono)"
+    d="M112 216 L88 88 L200 152 Q256 136 312 152 L424 88 L400 216 Q456 272 440 336 Q416 416 328 440 Q256 464 184 440 Q96 416 72 336 Q56 272 112 216 Z" />
+  <g stroke="#ffffff" stroke-width="16" stroke-linecap="round" fill="none">
+    <path d="M128 328 Q64 320 16 304" />
+    <path d="M128 360 Q64 368 16 384" />
+    <path d="M384 328 Q448 320 496 304" />
+    <path d="M384 360 Q448 368 496 384" />
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+[    1064ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/react-dom_client.js?v=c66e4ffc:14337
+[    2069ms] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19
+[  350796ms] [INFO] [hmr] /pages/_layout.tsx failed to apply HMR as it's within a circular import. Reloading page to reset the execution order. To debug and break the circular import, you can run `vite --debug hmr` to log the circular dependency path if a file change triggered it. @ http://localhost:3000/@vite/client:920
+[  350797ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19 @ http://localhost:3000/@vite/client:904
+[  350797ms] [ERROR] [vite] Failed to reload /pages/_layout.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:904
+[  351169ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/react-dom_client.js?v=c66e4ffc:14337
+[  352174ms] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19
+[  432222ms] [INFO] [hmr] /pages/_layout.tsx failed to apply HMR as it's within a circular import. Reloading page to reset the execution order. To debug and break the circular import, you can run `vite --debug hmr` to log the circular dependency path if a file change triggered it. @ http://localhost:3000/@vite/client:920
+[  432222ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19 @ http://localhost:3000/@vite/client:904
+[  432223ms] [ERROR] [vite] Failed to reload /pages/_layout.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:904
+[  432726ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/react-dom_client.js?v=c66e4ffc:14337
+[  433702ms] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19
+[  859320ms] [INFO] [hmr] /pages/_layout.tsx failed to apply HMR as it's within a circular import. Reloading page to reset the execution order. To debug and break the circular import, you can run `vite --debug hmr` to log the circular dependency path if a file change triggered it. @ http://localhost:3000/@vite/client:920
+[  859321ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19 @ http://localhost:3000/@vite/client:904
+[  859322ms] [ERROR] [vite] Failed to reload /pages/_layout.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:904
+[  859861ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/react-dom_client.js?v=c66e4ffc:14337
+[  860973ms] TypeError: Cannot read properties of undefined (reading 'metadata')
+    at getCurrentWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/window-D1xTGAi4.js?v=c66e4ffc:413:47)
+    at getCurrentWebview (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:30:21)
+    at getCurrentWebviewWindow (http://localhost:3000/@fs/Users/Apple/Documents/Projects/Github/clash-verge-rev/node_modules/.vite/deps/webviewWindow-BczluIPo.js?v=c66e4ffc:560:27)
+    at http://localhost:3000/components/profile/editor-viewer.tsx:17:19

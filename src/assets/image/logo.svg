@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 24" role="img" aria-label="Clash Ultra">
+  <title>Clash Ultra</title>
+  <g fill="inherit">
+    <text
+      x="0"
+      y="17"
+      font-family="Inter, SF Pro Display, Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+      font-size="16"
+      font-weight="760"
+      letter-spacing="0.35"
+    >Clash</text>
+    <text
+      x="50"
+      y="17"
+      font-family="Inter, SF Pro Display, Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+      font-size="16"
+      font-weight="860"
+      letter-spacing="0.45"
+    >Ultra</text>
+    <rect x="97" y="5" width="28" height="2" rx="1" opacity="0.55" />
+    <rect x="105" y="11" width="20" height="2" rx="1" opacity="0.32" />
+    <rect x="113" y="17" width="12" height="2" rx="1" opacity="0.2" />
+  </g>
+</svg>

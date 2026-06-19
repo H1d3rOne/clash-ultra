@@ -1,0 +1,109 @@
+import { getUltraConfig } from './cmds'
+import {
+  cacheLanguage,
+  getCachedLanguage,
+  initializeLanguage,
+  resolveLanguage,
+} from './i18n'
+
+let appConfigCache: IVergeConfig | null | undefined
+
+const detectSystemTheme = (): 'light' | 'dark' => {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function')
+    return 'light'
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
+
+const getThemeModeFromWindow = (): IVergeConfig['theme_mode'] | undefined => {
+  if (typeof window === 'undefined') return undefined
+  const mode = (
+    window as typeof window & {
+      __ULTRA_INITIAL_THEME_MODE?: unknown
+    }
+  ).__ULTRA_INITIAL_THEME_MODE
+  if (mode === 'light' || mode === 'dark' || mode === 'system') {
+    return mode
+  }
+  return undefined
+}
+
+export const resolveThemeMode = (
+  appConfig?: IVergeConfig | null,
+): 'light' | 'dark' => {
+  const initialMode = appConfig?.theme_mode ?? getThemeModeFromWindow()
+  if (initialMode === 'dark' || initialMode === 'light') {
+    return initialMode
+  }
+  if (initialMode === 'system') {
+    return detectSystemTheme()
+  }
+  return 'dark'
+}
+
+export const setPreloadConfig = (config: IVergeConfig | null) => {
+  appConfigCache = config
+}
+
+export const getPreloadConfig = () => appConfigCache
+
+export const preloadConfig = async () => {
+  try {
+    const config = await getUltraConfig()
+    setPreloadConfig(config)
+    return config
+  } catch (error) {
+    console.warn('[preload.ts] Failed to read app config:', error)
+    setPreloadConfig(null)
+    return null
+  }
+}
+
+export const preloadLanguage = async (
+  appConfig?: IVergeConfig | null,
+  loadConfig: () => Promise<IVergeConfig | null> = preloadConfig,
+) => {
+  const cachedLanguage = getCachedLanguage()
+  if (cachedLanguage) {
+    return cachedLanguage
+  }
+
+  let resolvedConfig = appConfig
+
+  if (resolvedConfig === undefined) {
+    try {
+      resolvedConfig = await loadConfig()
+    } catch (error) {
+      console.warn(
+        '[preload.ts] Failed to read language from app config:',
+        error,
+      )
+      resolvedConfig = null
+    }
+  }
+
+  const languageFromConfig = resolvedConfig?.language
+  if (languageFromConfig) {
+    const resolved = resolveLanguage(languageFromConfig)
+    cacheLanguage(resolved)
+    return resolved
+  }
+
+  const browserLanguage = resolveLanguage(
+    typeof navigator !== 'undefined' ? navigator.language : undefined,
+  )
+  cacheLanguage(browserLanguage)
+  return browserLanguage
+}
+
+export const preloadAppData = async () => {
+  const configPromise = preloadConfig()
+  const initialLanguage = await preloadLanguage(undefined, () => configPromise)
+  const [config] = await Promise.all([
+    configPromise,
+    initializeLanguage(initialLanguage),
+  ])
+  const initialThemeMode = resolveThemeMode(config)
+  return { initialThemeMode }
+}

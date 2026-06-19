@@ -1,0 +1,30 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "identifier": "app.clash-ultra.desktop",
+  "bundle": {
+    "targets": ["deb", "rpm"],
+    "linux": {
+      "deb": {
+        "depends": ["openssl", "libayatana-appindicator3-1"],
+        "desktopTemplate": "./packages/linux/clash-ultra.desktop",
+        "provides": ["clash-ultra"],
+        "postInstallScript": "./packages/linux/post-install.sh",
+        "preRemoveScript": "./packages/linux/pre-remove.sh"
+      },
+      "rpm": {
+        "depends": ["openssl", "libayatana-appindicator-gtk3"],
+        "desktopTemplate": "./packages/linux/clash-ultra.desktop",
+        "provides": ["clash-ultra"],
+        "postInstallScript": "./packages/linux/post-install.sh",
+        "preRemoveScript": "./packages/linux/pre-remove.sh"
+      }
+    },
+    "externalBin": [
+      "./sidecar/clash-ultra-service",
+      "./sidecar/clash-ultra-service-install",
+      "./sidecar/clash-ultra-service-uninstall",
+      "./sidecar/ultra-mihomo",
+      "./sidecar/ultra-mihomo-alpha"
+    ]
+  }
+}

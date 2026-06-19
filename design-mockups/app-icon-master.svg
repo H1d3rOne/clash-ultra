@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="catbg" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fd80b8" />
+      <stop offset="100%" stop-color="#c677f2" />
+    </linearGradient>
+    <mask id="fatcat-eyes">
+      <rect width="512" height="512" fill="#fff" />
+      <ellipse cx="192" cy="280" rx="21" ry="29" fill="#000" />
+      <ellipse cx="320" cy="280" rx="21" ry="29" fill="#000" />
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#catbg)" />
+  <g transform="translate(256 256) scale(0.86) translate(-256 -256)">
+    <path fill="#ffffff" mask="url(#fatcat-eyes)"
+      d="M112 216 L88 88 L200 152 Q256 136 312 152 L424 88 L400 216 Q456 272 440 336 Q416 416 328 440 Q256 464 184 440 Q96 416 72 336 Q56 272 112 216 Z" />
+    <g stroke="#ffffff" stroke-width="16" stroke-linecap="round" fill="none">
+      <path d="M128 328 Q72 322 36 312" />
+      <path d="M128 360 Q72 366 36 380" />
+      <path d="M384 328 Q440 322 476 312" />
+      <path d="M384 360 Q440 366 476 380" />
+    </g>
+  </g>
+</svg>

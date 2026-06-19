@@ -1,0 +1,15 @@
+mod app_config;
+mod clash;
+#[allow(clippy::module_inception)]
+mod config;
+mod encrypt;
+mod prfitem;
+pub mod profiles;
+pub mod runtime;
+
+pub use self::{app_config::*, clash::*, config::*, encrypt::*, prfitem::*, profiles::*};
+
+pub const DEFAULT_PAC: &str = r#"function FindProxyForURL(url, host) {
+  return "PROXY 127.0.0.1:%mixed-port%; SOCKS5 127.0.0.1:%mixed-port%; DIRECT;";
+}
+"#;

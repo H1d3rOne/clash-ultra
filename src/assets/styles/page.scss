@@ -1,0 +1,139 @@
+.base-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 10% 0,
+      color-mix(in srgb, var(--primary-main, #12afa0) 7%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 96% 10%,
+      color-mix(in srgb, var(--app-accent-cyan, #68a8ff) 6%, transparent),
+      transparent 28%
+    );
+
+  > header {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 58px;
+    width: 100%;
+    // max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--divider-color);
+    overflow: hidden;
+    color: var(--text-primary);
+    background:
+      linear-gradient(
+        100deg,
+        color-mix(in srgb, #fff 34%, transparent),
+        transparent 44%
+      ),
+      radial-gradient(
+        circle at 8% 0,
+        color-mix(in srgb, var(--primary-main, #12afa0) 10%, transparent),
+        transparent 34%
+      ),
+      color-mix(in srgb, var(--app-surface-strong, #ffffff) 72%, transparent);
+    box-shadow:
+      0 10px 30px color-mix(in srgb, var(--primary-main, #12afa0) 6%, transparent),
+      inset 0 1px 0 color-mix(in srgb, #fff 55%, transparent);
+    backdrop-filter: blur(24px) saturate(1.45);
+    -webkit-backdrop-filter: blur(24px) saturate(1.45);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 0;
+      height: 1px;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--primary-main, #12afa0) 42%, transparent),
+        color-mix(in srgb, var(--app-accent-cyan, #68a8ff) 30%, transparent),
+        transparent
+      );
+    }
+
+    .MuiTypography-root {
+      letter-spacing: -0.02em;
+      text-shadow: 0 1px 0 color-mix(in srgb, #fff 46%, transparent);
+    }
+  }
+
+  .base-container {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    overflow: hidden;
+    // border-radius: 10px;
+    // border-top-left-radius: var(--border-radius);
+
+    > section {
+      position: relative;
+      flex: 1 1 100%;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding: 10px 0;
+      box-sizing: border-box;
+      scrollbar-gutter: stable;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--primary-main, #12afa0) 2.4%, transparent) 1px,
+            transparent 1px
+          )
+            0 0 / 36px 36px,
+          linear-gradient(
+            color-mix(in srgb, var(--primary-main, #12afa0) 2.4%, transparent) 1px,
+            transparent 1px
+          )
+            0 0 / 36px 36px,
+          radial-gradient(
+            circle at 88% 92%,
+            color-mix(in srgb, var(--app-accent-cyan, #68a8ff) 6%, transparent),
+            transparent 28%
+          );
+        mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+        opacity: 0.72;
+      }
+
+      .base-content {
+        position: relative;
+        z-index: 1;
+        width: calc(100% - 10px * 2);
+        margin: 0 auto;
+      }
+    }
+
+    &.no-padding {
+      > section {
+        padding: 0;
+        overflow: visible;
+        .base-content {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

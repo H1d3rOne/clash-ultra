@@ -1,0 +1,122 @@
+import { listen } from '@tauri-apps/api/event'
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
+import { useEffect } from 'react'
+
+import { useListen } from '@/hooks/use-listen'
+import { queryClient } from '@/services/query-client'
+
+const getSafeCurrentWebviewWindow = () => {
+  try {
+    return getCurrentWebviewWindow()
+  } catch {
+    return null
+  }
+}
+
+export const useLayoutEvents = (
+  handleNotice: (payload: [string, string]) => void,
+) => {
+  const { addListener } = useListen()
+
+  useEffect(() => {
+    const unlisteners: Array<() => void> = []
+    let disposed = false
+    const revalidateKeys = (keys: readonly string[]) => {
+      keys.forEach((key) => {
+        queryClient.invalidateQueries({ queryKey: [key] })
+      })
+    }
+
+    const register = (
+      maybeUnlisten: void | (() => void) | Promise<void | (() => void)>,
+    ) => {
+      if (!maybeUnlisten) return
+
+      if (typeof maybeUnlisten === 'function') {
+        unlisteners.push(maybeUnlisten)
+        return
+      }
+
+      maybeUnlisten
+        .then((unlisten) => {
+          if (!unlisten) return
+          if (disposed) {
+            unlisten()
+          } else {
+            unlisteners.push(unlisten)
+          }
+        })
+        .catch((error) =>
+          console.error('[Event Listener] Registration failed:', error),
+        )
+    }
+
+    register(
+      addListener('ultra://refresh-clash-config', async () => {
+        revalidateKeys([
+          'getProxies',
+          'getVersion',
+          'getClashConfig',
+          'getProxyProviders',
+        ])
+      }),
+    )
+
+    register(
+      addListener('ultra://refresh-ultra-config', () => {
+        revalidateKeys([
+          'getUltraConfig',
+          'getSystemProxy',
+          'getAutotemProxy',
+          'getRunningMode',
+          'isServiceAvailable',
+          'getSystemState',
+        ])
+      }),
+    )
+
+    register(
+      addListener('ultra://notice-message', ({ payload }) =>
+        handleNotice(payload as [string, string]),
+      ),
+    )
+
+    const appWindow = getSafeCurrentWebviewWindow()
+    if (appWindow) {
+      register(
+        (async () => {
+          const [hideUnlisten, showUnlisten] = await Promise.all([
+            listen('ultra://hide-window', () => appWindow.hide()),
+            listen('ultra://show-window', () => appWindow.show()),
+          ])
+          return () => {
+            hideUnlisten()
+            showUnlisten()
+          }
+        })(),
+      )
+    }
+
+    return () => {
+      disposed = true
+      const errors: Error[] = []
+
+      unlisteners.forEach((unlisten) => {
+        try {
+          unlisten()
+        } catch (error) {
+          errors.push(error instanceof Error ? error : new Error(String(error)))
+        }
+      })
+
+      if (errors.length > 0) {
+        console.error(
+          `[Event Listener] Encountered ${errors.length} errors during cleanup:`,
+          errors,
+        )
+      }
+
+      unlisteners.length = 0
+    }
+  }, [addListener, handleNotice])
+}

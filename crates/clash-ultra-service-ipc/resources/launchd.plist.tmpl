@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>app.clash-ultra.desktop.service</string>
+
+    <key>AssociatedBundleIdentifiers</key>
+    <array>
+        <string>app.clash-ultra.desktop</string>
+    </array>
+
+    <key>MachServices</key>
+    <dict>
+        <key>app.clash-ultra.desktop.service</key>
+        <true/>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/PrivilegedHelperTools/app.clash-ultra.desktop.service.bundle/Contents/MacOS/clash-ultra-service</string>
+    </array>
+
+    <key>GroupName</key>
+    <string>{group_name}</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
