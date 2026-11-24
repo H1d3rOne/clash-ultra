@@ -72,11 +72,16 @@ jobs:
           CURRENT_VERSION=$(cat package.json | jq -r '.version')
           echo "📦 Current version: $CURRENT_VERSION"
 
-          git checkout HEAD~1 package.json
-          PREVIOUS_VERSION=$(cat package.json | jq -r '.version')
-          echo "📦 Previous version: $PREVIOUS_VERSION"
-
-          git checkout HEAD package.json
+          # Handle root/orphan commits (no parent) gracefully
+          if git rev-parse --verify -q HEAD~1 >/dev/null 2>&1; then
+            git checkout HEAD~1 package.json
+            PREVIOUS_VERSION=$(cat package.json | jq -r '.version')
+            git checkout HEAD package.json
+            echo "📦 Previous version: $PREVIOUS_VERSION"
+          else
+            echo "⚠️  Root commit detected (no parent), treating as initial build"
+            PREVIOUS_VERSION=""
+          fi
 
           if [ "$CURRENT_VERSION" != "$PREVIOUS_VERSION" ]; then
             echo "✅ Version changed from $PREVIOUS_VERSION to $CURRENT_VERSION"
